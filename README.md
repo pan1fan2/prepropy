@@ -1,6 +1,6 @@
 # prepropy 
 
-![](https://github.com/ja.chang0628/prepropy/workflows/build/badge.svg) [![codecov](https://codecov.io/gh/ja.chang0628/prepropy/branch/main/graph/badge.svg)](https://codecov.io/gh/ja.chang0628/prepropy) ![Release](https://github.com/ja.chang0628/prepropy/workflows/Release/badge.svg) [![Documentation Status](https://readthedocs.org/projects/prepropy/badge/?version=latest)](https://prepropy.readthedocs.io/en/latest/?badge=latest)
+![](https://github.com/ja.chang0628/prepropy/workflows/build/badge.svg) [![codecov](https://codecov.io/gh/UBC-MDS/prepropy/branch/main/graph/badge.svg)](https://codecov.io/gh/UBC-MDS/prepropy) ![Release](https://github.com/UBC-MDS/prepropy/workflows/Release/badge.svg) [![Documentation Status](https://readthedocs.org/projects/prepropy/badge/?version=latest)](https://prepropy.readthedocs.io/en/latest/?badge=latest)
 
 A python package for data preprocessing 
 

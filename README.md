@@ -19,9 +19,9 @@ $ pip install -i https://test.pypi.org/simple/ prepropy
 The package is under development, it will includes following functions:
 
 - Function 1 :  Identify and handle missing values in a dataframe
-- Function 2 :  Perform feature scaling in a dataframe
+- Feature Scaler:  Performs Numerical Feature Scaling 
     - Scale Numerical Features to facilitate seamless building of machine learning pipelines
-    - Transform Categorical Features into numerical features using One-Hot encoder
+    - Provide functionality to pick from multiple scaling alorithms
 - Function 3 :  Extract info and Visualize selected features in a dataframe
     - Separate data into train/test dataset
     - Report number of missing data

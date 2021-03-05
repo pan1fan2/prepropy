@@ -32,6 +32,8 @@ class imputation:
         method: str
             method we wish to do the imputing.
         """
+        if method not in ['mean', 'median', 'most_frequent']:
+            raise KeyError("Method must be one of mean, median, most_frequent")
         self.method = method
         self.values = None
     
@@ -43,7 +45,7 @@ class imputation:
         ----------
         data: pandas.core.frame.DataFrame
             a pandas dataframe that will be used to compute the values for imputation. Each column in the dataframe represents a feature while each row represents an observation.
-            Note that all data within the dataframe must have the same type, i.e, str, (float or int) etc.
+            Note that in some methods such as mean and median, all data within the dataframe must have the same type, i.e, (float or int) etc.
 
         Returns
         -------
@@ -55,6 +57,19 @@ class imputation:
         >>>imputer = imputation('mean')
         >>>imputer.fit(test_df)
         """
+        if type(data) != pd.DataFrame:
+            raise ValueError('Input data must be a Pandas Dataframe')
+        if self.method == 'mean':
+            if data.shape[1] != data.select_dtypes(include=np.number).shape[1]:
+                raise TypeError("All values in dataframe must be numeric")
+            self.values = data.mean().values
+        elif self.method == 'median':
+            if data.shape[1] != data.select_dtypes(include=np.number).shape[1]:
+                raise TypeError("All values in dataframe must be numeric")
+            self.values = data.median().values
+        elif self.method == 'most_frequent':
+            self.values = data.mode().values[0]
+            
     def fill(self, data_for_fill):
         """
         Fills the missing values in each column of the dataframe that we wish to fill.
@@ -89,3 +104,9 @@ class imputation:
         1  5.0   2.  6.000000
         2  3.5   3.  4.666667
         """
+        if len(self.values) != data_for_fill.shape[1]:
+            raise TypeError('DataFrame to be imputed must have the same number of columns as the fitted data')
+        data = data_for_fill.copy()
+        for i in range(len(data.columns)):
+            data.iloc[:,i].fillna(self.values[i], inplace = True)
+        return data

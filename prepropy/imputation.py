@@ -58,7 +58,9 @@ class imputation:
         >>>imputer.fit(test_df)
         """
         if type(data) != pd.DataFrame:
-            raise ValueError('Input data must be a Pandas Dataframe')
+            raise TypeError('Input data must be a Pandas Dataframe')
+        if data.empty:
+            raise ValueError('DataFrame cannot be empty')
         if self.method == 'mean':
             if data.shape[1] != data.select_dtypes(include=np.number).shape[1]:
                 raise TypeError("All values in dataframe must be numeric")

@@ -112,3 +112,4 @@ class imputation:
         for i in range(len(data.columns)):
             data.iloc[:,i].fillna(self.values[i], inplace = True)
         return data
+

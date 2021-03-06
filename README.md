@@ -21,7 +21,7 @@ The package is under development, it will includes following functions:
 - Imputer :  Identify and handle missing values in a dataframe
     - A class that does the imputation for missing data
     - Can work on both numerical and categorical data
-- Feature Scaler:  Performs Numerical Feature Scaling 
+- Numeric Scaler:  Performs Numerical Feature Scaling 
     - Scale Numerical Features to facilitate seamless building of machine learning pipelines
     - Provide functionality to pick from multiple scaling algorithms
 - EDA :  Extract info and Visualize selected features in a dataframe

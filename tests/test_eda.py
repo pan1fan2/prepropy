@@ -21,16 +21,17 @@ def test_eda():
     # test for attribute names
     def test_attributes():
         
-        test_data = get_test_data()
+        test_data = gen_test_data()
         eda_res = eda.eda(test_data)
 
         assert 'cat_features_name' in eda_res
         assert 'num_features_name' in eda_res
+        assert 'pairplot' in eda_res
         
     # test for numerical features   
     def test_num_feature():
         
-        test_data = get_test_data()
+        test_data = gen_test_data()
         eda_res = eda.eda(test_data)
         
         assert "num2" in eda_res["num_features_name"] , "Wrong output for numerical feature names"
@@ -38,7 +39,7 @@ def test_eda():
     # test for length of numerical features
     def test_len_num_feature():
         
-        test_data = get_test_data()
+        test_data = gen_test_data()
         eda_res = eda.eda(test_data)
         
         assert eda_res["nb_num_features"] == 4 , "Wrong output for the length of numerical features"
@@ -46,7 +47,7 @@ def test_eda():
     # test for length of numerical features
     def test_cat_feature():
         
-        test_data = get_test_data()
+        test_data = gen_test_data()
         eda_res = eda.eda(test_data)
         
         assert "cat1" in eda_res["cat_features_name"] , "Wrong output for categorical feature names"
@@ -54,7 +55,7 @@ def test_eda():
     # test for length of categorical features
     def test_len_cat_features():
         
-        test_data = get_test_data()
+        test_data = gen_test_data()
         eda_res = eda.eda(test_data)
         
         assert eda_res["nb_cat_features"] == 1, "Wrong output for the length of categorical features"
@@ -64,7 +65,7 @@ def test_eda():
     
     def test_nb_classes():
         
-        test_data = get_test_data()
+        test_data = gen_test_data()
         eda_res = eda.eda(test_data)
         
         assert eda_res["nb_class"] == 3 , "Wrong output for the number of class lables"
@@ -72,7 +73,7 @@ def test_eda():
     # test for altair output
     def test_pairplot():
     
-        test_data = get_test_data()
+        test_data = gen_test_data()
         eda_res = eda.eda(test_data)
         p = eda_res["pairplot"]
     

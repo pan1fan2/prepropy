@@ -35,7 +35,12 @@ EDA and data preprocessing are crucial steps to take before diving into any mach
 
 ## Dependencies
 
-- TODO
+* python = "^3.8"
+* pandas = "^1.2.3"
+* numpy = "^1.20.1"
+* altair = "^4.1.0"
+* vega-datasets = "^0.9.0"
+* sklearn = "^0.0"
 
 ## Usage
 

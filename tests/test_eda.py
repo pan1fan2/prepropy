@@ -76,7 +76,6 @@ def test_eda():
         test_data = gen_test_data()
         eda_res = eda.eda(test_data)
         p = eda_res["pairplot"]
-    
         assert isinstance(p, altair.vegalite.v4.api.RepeatChart), 'Wrong output for altair plot'
         
     def test_eda_raise_error_not_dataframe():

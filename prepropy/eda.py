@@ -55,8 +55,7 @@ def eda(df,target):
     
     # Check the dataframe input
     if not isinstance(df, pd.DataFrame):
-        raise Exception("The value of the argument 'dataframe' " +
-                        "should be of type pandas dataframe.")
+        raise TypeError("Input data must be instance of pandas.core.frame.DataFrame.")
     
     # Create an empty dictionary    
     res = {}

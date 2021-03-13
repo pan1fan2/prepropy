@@ -1,7 +1,7 @@
 from prepropy.scaler import scaler
 import pytest
 import pandas as pd
-import nump as np
+import numpy as np
 
 # DataFrames used for testing
 empty_df = pd.DataFrame()

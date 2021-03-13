@@ -6,29 +6,29 @@ def eda(df, target):
     """
     Generates a dictionary to access summary statistics of the given data frame
 
-        Parameters
-        --------
-        df : pandas.DataFrame
-            input dataframe to be analyzed
-        target : string
-            target column name
+    Parameters
+    --------
+    df : pandas.DataFrame
+        input dataframe to be analyzed
+    target : string
+        target column name
 
-        Returns
-        --------
-        dict
-            access summary statistics of the given data frame.
-        cor
-            the correlation map
+    Returns
+    --------
+    dict
+        access summary statistics of the given data frame.
+    cor
+        the correlation map
 
-        Examples
-        --------
-        >>> from propropy import eda
-        >>> url1 = "https://archive.ics.uci.edu/ml/machine-learning-databases/"
-        >>> url2 = "wine-quality/winequality-red.csv"
-        >>> url = url1+url2
-        >>> df = pd.read_csv(url, ";")
-        >>> target = "quality"
-        >>> res = eda(df,quality)
+    Examples
+    --------
+    >>> from propropy import eda
+    >>> url1 = "https://archive.ics.uci.edu/ml/machine-learning-databases/"
+    >>> url2 = "wine-quality/winequality-red.csv"
+    >>> url = url1+url2
+    >>> df = pd.read_csv(url, ";")
+    >>> target = "quality"
+    >>> res = eda(df,quality)
     """
     # Check the dataframe input
     if not isinstance(df, pd.DataFrame):

@@ -5,54 +5,59 @@ import altair as alt
 def eda(df, target):
     """
     Generates a dictionary to access summary statistics of the given data frame
-    Parameters
-    --------
-    input_data: pandas.DataFrame
-        input dataframe to be analyzed
-    Returns
-    --------
-    dict
-        access summary statistics of the given data frame.
-    cor
-        the correlation map
-    Examples
-    --------
-    >>> from propropy import eda
-    >>> url1 = "https://archive.ics.uci.edu/ml/machine-learning-databases/"
-    >>> url2 = "wine-quality/winequality-red.csv"
-    >>> url = url1+url2
-    >>> df = pd.read_csv(url, ";")
-    >>> target = "quality"
-    >>> res = eda(df,quality)
-    >>> res
-    {'nb_missing_values': [('fixed acidity', 0),
-      ('volatile acidity', 0),
-      ('citric acid', 0),
-      ('residual sugar', 0),
-      ('chlorides', 0),
-      ('free sulfur dioxide', 0),
-      ('total sulfur dioxide', 0),
-      ('density', 0),
-      ('pH', 0),
-      ('sulphates', 0),
-      ('alcohol', 0)],
-     'nb_cat_features': 0,
-     'cat_features_name': [],
-     'nb_num_features': 11,
-     'num_features_name': ['fixed acidity',
-      'volatile acidity',
-      'citric acid',
-      'residual sugar',
-      'chlorides',
-      'free sulfur dioxide',
-      'total sulfur dioxide',
-      'density',
-      'pH',
-      'sulphates',
-      'alcohol'],
-     'nb_class': 6,
-     'class_ratio': [0.4259, 0.399, 0.1245, 0.0331, 0.0113, 0.0063],
-     'pairplot': alt.RepeatChart(...)}
+    
+        Parameters
+        --------
+        df : pandas.DataFrame
+            input dataframe to be analyzed
+        target : string
+            target column name
+        
+        Returns
+        --------
+        dict
+            access summary statistics of the given data frame.
+        cor
+            the correlation map
+        
+        Examples
+        --------
+        >>> from propropy import eda
+        >>> url1 = "https://archive.ics.uci.edu/ml/machine-learning-databases/"
+        >>> url2 = "wine-quality/winequality-red.csv"
+        >>> url = url1+url2
+        >>> df = pd.read_csv(url, ";")
+        >>> target = "quality"
+        >>> res = eda(df,quality)
+        >>> res
+        {'nb_missing_values': [('fixed acidity', 0),
+        ('volatile acidity', 0),
+        ('citric acid', 0),
+        ('residual sugar', 0),
+        ('chlorides', 0),
+        ('free sulfur dioxide', 0),
+        ('total sulfur dioxide', 0),
+        ('density', 0),
+        ('pH', 0),
+        ('sulphates', 0),
+        ('alcohol', 0)],
+        'nb_cat_features': 0,
+        'cat_features_name': [],
+        'nb_num_features': 11,
+        'num_features_name': ['fixed acidity',
+        'volatile acidity',
+        'citric acid',
+        'residual sugar',
+        'chlorides',
+        'free sulfur dioxide',
+        'total sulfur dioxide',
+        'density',
+        'pH',
+        'sulphates',
+        'alcohol'],
+        'nb_class': 6,
+        'class_ratio': [0.4259, 0.399, 0.1245, 0.0331, 0.0113, 0.0063],
+        'pairplot': alt.RepeatChart(...)}
     """
     # Check the dataframe input
     if not isinstance(df, pd.DataFrame):

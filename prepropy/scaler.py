@@ -4,58 +4,31 @@ from sklearn.preprocessing import MaxAbsScaler
 from sklearn.preprocessing import MinMaxScaler
 
 
-def scaler(
-    X_train, X_Valid, X_test, scale_features, scaler_type="StandardScaler"
-):
+def scaler(X_train, X_Valid, X_test, scale_features, scaler_type="StandardScaler"):
     """
     This function scales numerical features based on scaling requirement
-        Parameters
-        ----------
-        X_train : pandas.core.frame.DataFrame, numpy array or list
-            The DataFrame, numpy array or list
-        X_Valid : pandas.core.frame.DataFrame, numpy array or list
-            The DataFrame, numpy array or list
-        X_test : pandas.core.frame.DataFrame, numpy array or list
-            The DataFrame, numpy array or list
-        scale_features: list of strings
-            The list of numerical features to be scaled
-        scaler_type: string
-            The type of scaling to perform on the numerical columns.
+    
+    Parameters
+    ----------
+    X_train : pandas.core.frame.DataFrame, numpy array or list
+        The DataFrame, numpy array or list
+    X_Valid : pandas.core.frame.DataFrame, numpy array or list
+        The DataFrame, numpy array or list
+    X_test : pandas.core.frame.DataFrame, numpy array or list
+        The DataFrame, numpy array or list
+    scale_features: list of strings
+        The list of numerical features to be scaled
+    scaler_type: string
+        The type of scaling to perform on the numerical columns.
 
-        Returns
-        -------
-        dict:
-            dict containing three dataframes with scaled features
+    Returns
+    -------
+    dict
+        dict containing three dataframes with scaled features
 
-        Examples
-        ------
-        >>>X_train = pd.DataFrame(np.array([['adam', 54, 500],
-         ['eve', 45, 6000],['pandaman', 64, 9000]]),
-        columns=['name', 'age', 'net_worth'])
-        >>>X_Valid = pd.DataFrame(np.array([['nurse', 54, 18000],
-         ['ddoorman', 87, 2000],
-         ['bruman', 100, 400000]]),
-        columns=['name', 'age', 'net_worth'])
-        >>>X_test = pd.DataFrame(np.array([['raconman', 45, 70000],
-         ['idkman', 23, 56000],
-         ['testman', 12, 81000]]),
-        columns=['name', 'age', 'net_worth'])
-        >>>scaled_data = scaler(X_train,
-         X_Valid, X_test,
-        ['age', 'net_worth'])
-        >>>scaled_data
-            {'X_train':        name       age net_worth
-             0      adam -0.042954 -1.325838
-             1       eve -1.202703  0.236757
-             2  pandaman  1.245657  1.089082,
-             'X_Valid':        name       age   net_worth
-             0     nurse -0.042954    3.646056
-             1  ddoorman   4.20946   -0.899676
-             2    bruman  5.884654  112.175401,
-             'X_test':        name       age  net_worth
-             0  raconman -1.202703  18.419684
-             1    idkman -4.037646  14.442169
-             2   testman -5.455117  21.544874}
+    Examples
+    --------
+    >>>scaler(X_train, X_Valid, X_test, scale_features, scaler_type="MaxAbsScaler")
     """
 
     # Error Checking

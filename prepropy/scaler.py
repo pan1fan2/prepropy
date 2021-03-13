@@ -10,27 +10,27 @@ def scaler(
     """
     This function scales numerical features based on scaling requirement
 
-        Parameters
-        --------
-        X_train : pandas.core.frame.DataFrame, numpy array or list
-            The DataFrame, numpy array or list
-        X_Valid : pandas.core.frame.DataFrame, numpy array or list
-            The DataFrame, numpy array or list
-        X_test : pandas.core.frame.DataFrame, numpy array or list
-            The DataFrame, numpy array or list
-        scale_features: list of strings
-            The list of numerical features to be scaled
-        scaler_type: string
-            The type of scaling to perform on the numerical columns.
+    Parameters
+    --------
+    X_train : pandas.core.frame.DataFrame, numpy array or list
+        The DataFrame, numpy array or list
+    X_Valid : pandas.core.frame.DataFrame, numpy array or list
+        The DataFrame, numpy array or list
+    X_test : pandas.core.frame.DataFrame, numpy array or list
+        The DataFrame, numpy array or list
+    scale_features: list of strings
+        The list of numerical features to be scaled
+    scaler_type: string
+        The type of scaling to perform on the numerical columns.
 
-        Returns
-        --------
-        dict
-            dict containing three dataframes with scaled features
+    Returns
+    --------
+    dict
+        dict containing three dataframes with scaled features
 
-        Examples
-        --------
-        >>>scaler(X_train, X_Valid, X_test, scale_features, scaler_type="MaxAbsScaler") # noqa: E501
+    Examples
+    --------
+    >>>scaler(X_train, X_Valid, X_test, scale_features, scaler_type="MaxAbsScaler") # noqa: E501
     """
 
     # Error Checking

@@ -85,7 +85,7 @@ def test_method():
     """Tests catches wrong method for imputation"""
     with pytest.raises(KeyError):
         imputer = imputation("hello")
-        imputer.fit(df1)
+        imputer.fit()
 
 
 def test_pdtype():

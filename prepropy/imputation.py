@@ -44,7 +44,7 @@ class imputation:
         Parameters
         ----------
         data: pandas.core.frame.DataFrame
-            a pandas dataframe that will be used to compute the values for imputation
+            a pandas dataframe
 
         Returns
         -------
@@ -104,9 +104,7 @@ class imputation:
         2  3.5   3.  4.666667
         """
         if len(self.values) != data_for_fill.shape[1]:
-            raise TypeError(
-                "DataFrame to be imputed must have the same number of columns as the fitted data"
-            )
+            raise TypeError("Columns are not Equal")
         data = data_for_fill.copy()
         for i in range(len(data.columns)):
             data.iloc[:, i].fillna(self.values[i], inplace=True)

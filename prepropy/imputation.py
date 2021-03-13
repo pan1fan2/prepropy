@@ -1,6 +1,5 @@
 import pandas as pd
 import numpy as np
-import math
 
 
 class imputation:
@@ -12,7 +11,7 @@ class imputation:
     method: str
         method we wish to do the imputing.
     values: numpy array
-        an array with values to be imputed. Default at None when first setting up the class.
+        an array with values to be imputed. Default None
 
     Returns
     --------
@@ -40,13 +39,12 @@ class imputation:
 
     def fit(self, data):
         """
-        Calculates the value to be imputated for each column in the dataframe and store them in self.values
+        Calculates the value to be imputated for each column
 
         Parameters
         ----------
         data: pandas.core.frame.DataFrame
-            a pandas dataframe that will be used to compute the values for imputation. Each column in the dataframe represents a feature while each row represents an observation.
-            Note that in some methods such as mean and median, all data within the dataframe must have the same type, i.e, (float or int) etc.
+            a pandas dataframe that will be used to compute the values for imputation
 
         Returns
         -------
@@ -75,14 +73,12 @@ class imputation:
 
     def fill(self, data_for_fill):
         """
-        Fills the missing values in each column of the dataframe that we wish to fill.
+        Fills the missing values in each column
 
         Parameters
         ----------
         data_for_fill: pandas.core.frame.DataFrame
-            a pandas dataframe that we wish to fill the missing values with. Note that the number of columns(features) of the dataframe that we wish to fill must
-            equal to that of the one we fit the data with. In addition, order of the columns(features) for the dataframe we wish to fill should be the same as the one
-            we used to fit our class.
+            a pandas dataframe that we wish to fill the missing values with
 
         Returns
         -------

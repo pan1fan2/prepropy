@@ -7,9 +7,15 @@ import numpy as np
 def test_imputation():
     """Group of tests that test for the output generated from impute"""
     df1 = pd.DataFrame([[np.nan, 2, 3], [4, np.nan, 6], [10, 5, 9]])
-    df2 = pd.DataFrame([[np.nan, 2, 3], [4, np.nan, 6], [10, 5, 9], [3, 15, 17]])
-    df3 = pd.DataFrame([[np.nan, "b", "c"], ["d", np.nan, "f"], ["d", "x", np.nan]])
-    df_m = pd.DataFrame([[np.nan, 1, "c"], ["d", np.nan, "f"], ["d", 3, np.nan]])
+    df2 = pd.DataFrame(
+        [[np.nan, 2, 3], [4, np.nan, 6], [10, 5, 9], [3, 15, 17]]
+    )
+    df3 = pd.DataFrame(
+        [[np.nan, "b", "c"], ["d", np.nan, "f"], ["d", "x", np.nan]]
+    )
+    df_m = pd.DataFrame(
+        [[np.nan, 1, "c"], ["d", np.nan, "f"], ["d", 3, np.nan]]
+    )
     df_s = pd.DataFrame([1])
     df1_t = pd.DataFrame([[7.0, 2, 3], [4, 3.5, 6], [10, 5, 9]])
     df2_t = pd.DataFrame(
@@ -49,7 +55,7 @@ def test_imputation():
         df4_filled.to_numpy(), df1_t.to_numpy()
     ), "Generated Output are incorrect"
 
-    # test for mix type dataframe for most_frequent method
+    # test for mix type dataframe for most_frequent
     imputer = imputation("most_frequent")
     imputer.fit(df_m)
     df5_filled = imputer.fill(df_m)
@@ -76,9 +82,10 @@ def test_empty():
 
 
 def test_method():
-    """Tests whether Class Method catches wrong method for imputation"""
+    """Tests catches wrong method for imputation"""
     with pytest.raises(KeyError):
         imputer = imputation("hello")
+        imputer.fit(df1)
 
 
 def test_pdtype():
@@ -89,8 +96,10 @@ def test_pdtype():
 
 
 def test_pdtype2():
-    """Tests given method of imputations are mean and median, the data within DataFrame must be all numeric"""
-    test_df = pd.DataFrame([["a", "b", "c"], ["d", np.nan, "f"], ["z", "x", "y"]])
+    """Tests given mean/median, df is all numeric"""
+    test_df = pd.DataFrame(
+        [["a", "b", "c"], ["d", np.nan, "f"], ["z", "x", "y"]]
+    )
     with pytest.raises(TypeError):
         imputer = imputation("mean")
         imputer.fit(test_df)
@@ -100,8 +109,10 @@ def test_pdtype2():
 
 
 def test_length():
-    """Tests whether the dataframe to be imputed has the same length as the fitted dataframe"""
-    test_df1 = pd.DataFrame([["a", "b", "c"], ["d", np.nan, "f"], ["z", "x", "y"]])
+    """Tests whether columns of fit = fill"""
+    test_df1 = pd.DataFrame(
+        [["a", "b", "c"], ["d", np.nan, "f"], ["z", "x", "y"]]
+    )
     test_df2 = pd.DataFrame([["a", "b"], ["d", np.nan], ["z", "x"]])
     with pytest.raises(TypeError):
         imputer = imputation("most_frequent")

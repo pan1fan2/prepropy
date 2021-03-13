@@ -1,6 +1,7 @@
 from prepropy.scaler import scaler
 import pytest
 import pandas as pd
+import nump as np
 
 # DataFrames used for testing
 empty_df = pd.DataFrame()
@@ -56,6 +57,7 @@ scaled_max_abs_X_Valid = np.array(
         [5.884653880349541, 112.17540117067863],
     ]
 )
+
 
 # testing if output is correct
 def test_scaled_values():

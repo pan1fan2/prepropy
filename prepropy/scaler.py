@@ -61,7 +61,7 @@ def scaler(
     # Error Checking
     if scaler_type not in ["StandardScaler", "MinMaxScaler", "MaxAbsScaler"]:
         raise KeyError(
-            'Please select a Valid scaler, pick from "StandardScaler", "MinMaxScaler", "MaxAbsScaler"'
+            'Please use scaler "StandardScaler", "MinMaxScaler", "MaxAbsScaler"'  # noqa: E501
         )
     if (
         not isinstance(X_train, pd.DataFrame)

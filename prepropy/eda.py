@@ -49,7 +49,7 @@ def eda(df, target):
     res["nb_class"] = len(list(set(df[target])))
     class_count = df[target].value_counts(normalize=True).values
     res["class_ratio"] = list(class_count.round(4))
-    # Create a pair plot with Altair
+    # Create a pair plots with Altair
     color_lab = target + ":N"
     chart = (
         alt.Chart(df)

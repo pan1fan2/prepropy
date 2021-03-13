@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "prepropy"
-version = "0.1.0"
+version = "0.1.1"
 description = "A python package for data preprocessing"
 authors = ["Chun Chieh Chang, Bruhat Musunuru, Pan Fan"]
 license = "\"MIT\""

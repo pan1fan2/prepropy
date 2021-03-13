@@ -1,17 +1,14 @@
 from prepropy.scaler import scaler
 import pytest
 import pandas as pd
-import numpy as np
-import math
-from sklearn.preprocessing import StandardScaler
-from sklearn.preprocessing import MaxAbsScaler
-from sklearn.preprocessing import MinMaxScaler
 
 # DataFrames used for testing
 empty_df = pd.DataFrame()
 X_test_list = [["adam", 54, 500], ["eve", 45, 6000], ["pandaman", 64, 9000]]
 X_test_non_num = pd.DataFrame(
-    np.array([["adam", 54, 500], ["eve", "Iamnotnum", 6000], ["pandaman", 64, 9000]]),
+    np.array(
+        [["adam", 54, 500], ["eve", "Iamnotnum", 6000], ["pandaman", 64, 9000]]
+    ),
     columns=["name", "age", "net_worth"],
 )
 X_train = pd.DataFrame(
@@ -19,11 +16,19 @@ X_train = pd.DataFrame(
     columns=["name", "age", "net_worth"],
 )
 X_Valid = pd.DataFrame(
-    np.array([["nurse", 54, 18000], ["ddoorman", 87, 2000], ["bruman", 100, 400000]]),
+    np.array(
+        [["nurse", 54, 18000], ["ddoorman", 87, 2000], ["bruman", 100, 400000]]
+    ),
     columns=["name", "age", "net_worth"],
 )
 X_test = pd.DataFrame(
-    np.array([["raconman", 45, 70000], ["idkman", 23, 56000], ["testman", 12, 81000]]),
+    np.array(
+        [
+            ["raconman", 45, 70000],
+            ["idkman", 23, 56000],
+            ["testman", 12, 81000],
+        ]
+    ),
     columns=["name", "age", "net_worth"],
 )
 scaled_data = scaler(X_train, X_Valid, X_test, ["age", "net_worth"])
@@ -60,10 +65,12 @@ def test_scaled_values():
         temp["X_test"].drop(columns=["name"]).to_numpy(), scaled_max_abs_X_test
     ), "Incorrect scaled test values"
     assert np.array_equal(
-        temp["X_train"].drop(columns=["name"]).to_numpy(), scaled_max_abs_X_train
+        temp["X_train"].drop(columns=["name"]).to_numpy(),
+        scaled_max_abs_X_train,
     ), "Incorrect scaled train values"
     assert np.array_equal(
-        temp["X_Valid"].drop(columns=["name"]).to_numpy(), scaled_max_abs_X_Valid
+        temp["X_Valid"].drop(columns=["name"]).to_numpy(),
+        scaled_max_abs_X_Valid,
     ), "Incorrect scaled Valid values"
 
 
@@ -78,7 +85,11 @@ def test_scaling_method():
     """Tests whether scaling Method catches invalid methods"""
     with pytest.raises(KeyError):
         scaler(
-            X_train, X_Valid, X_test, ["age", "net_worth"], scaler_type="spacescaler"
+            X_train,
+            X_Valid,
+            X_test,
+            ["age", "net_worth"],
+            scaler_type="spacescaler",
         )
 
 

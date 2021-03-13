@@ -163,8 +163,3 @@ def test_minmax():
     assert np.array_equal(
         test_dict["X_test"].drop(columns=["name"]).to_numpy(), scaled_temp
     ), "Incorrect scaled test values"
-
-
-def test_list():
-    with pytest.raises(TypeError):
-        scaler(X_train, X_Valid, X_test, 1)

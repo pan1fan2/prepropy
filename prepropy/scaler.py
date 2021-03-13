@@ -52,8 +52,6 @@ def scaler(
         or (len(scale_features) == 0)
     ):
         raise ValueError("Inputs cannot be empty")
-    if not isinstance(scale_features, list):
-        raise TypeError("Feature names must be in list format")
     for feature in scale_features:
         if (X_train[feature].str.isnumeric().sum()) != len(X_train[feature]):
             raise ValueError("Features should have only numeric values")

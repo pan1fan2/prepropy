@@ -4,10 +4,12 @@ from sklearn.preprocessing import MaxAbsScaler
 from sklearn.preprocessing import MinMaxScaler
 
 
-def scaler(X_train, X_Valid, X_test, scale_features, scaler_type="StandardScaler"):
+def scaler(
+    X_train, X_Valid, X_test, scale_features, scaler_type="StandardScaler"
+):
     """
     This function scales numerical features based on scaling requirement
-    
+
     Parameters
     ----------
     X_train : pandas.core.frame.DataFrame, numpy array or list
@@ -28,7 +30,8 @@ def scaler(X_train, X_Valid, X_test, scale_features, scaler_type="StandardScaler
 
     Examples
     --------
-    >>>scaler(X_train, X_Valid, X_test, scale_features, scaler_type="MaxAbsScaler")
+    >>>scaler(X_train, X_Valid, X_test,
+     scale_features, scaler_type="MaxAbsScaler")
     """
 
     # Error Checking

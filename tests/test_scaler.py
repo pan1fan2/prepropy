@@ -106,33 +106,64 @@ def test_input_datatypes():
     with pytest.raises(ValueError):
         scaler(X_train, X_Valid, X_test_non_num, ["age", "net_worth"])
 
+
 def test_feature_input():
-    """ Tests if function catches wrong data type in input features
-    """
+    """Tests if function catches wrong data type in input features"""
     with pytest.raises(ValueError):
-        scaler(X_train, X_Valid, X_test_non_num, ['age', 'net_worth'])
+        scaler(X_train, X_Valid, X_test_non_num, ["age", "net_worth"])
     with pytest.raises(ValueError):
-        scaler(X_train, X_test_non_num, X_test, ['age', 'net_worth'])
+        scaler(X_train, X_test_non_num, X_test, ["age", "net_worth"])
     with pytest.raises(ValueError):
-        scaler(X_test_non_num, X_Valid, X_test, ['age', 'net_worth'])
+        scaler(X_test_non_num, X_Valid, X_test, ["age", "net_worth"])
+
 
 def test_MaxAbsScaler():
-    X_sample = pd.DataFrame(np.array([['adam', 54, 500], ['eve', 45, 6000],['pandaman', 64, 9000]]),
-                       columns=['name', 'age', 'net_worth'])
-    test_dict = scaler(X_sample, X_sample, X_sample, ['age', 'net_worth'], scaler_type="MaxAbsScaler")
-    scaled_temp = np.array([[0.84375, 0.05555555555555555],
-       [0.703125, 0.6666666666666666],
-       [1.0, 1.0]])
-    assert np.array_equal(test_dict['X_test'].drop(columns=['name']).to_numpy(), scaled_temp), 'Incorrect scaled test values'
+    X_sample = pd.DataFrame(
+        np.array(
+            [["adam", 54, 500], ["eve", 45, 6000], ["pandaman", 64, 9000]]
+        ),
+        columns=["name", "age", "net_worth"],
+    )
+    test_dict = scaler(
+        X_sample,
+        X_sample,
+        X_sample,
+        ["age", "net_worth"],
+        scaler_type="MaxAbsScaler",
+    )
+    scaled_temp = np.array(
+        [
+            [0.84375, 0.05555555555555555],
+            [0.703125, 0.6666666666666666],
+            [1.0, 1.0],
+        ]
+    )
+    assert np.array_equal(
+        test_dict["X_test"].drop(columns=["name"]).to_numpy(), scaled_temp
+    ), "Incorrect scaled test values"
+
 
 def test_minmax():
-    X_sample = pd.DataFrame(np.array([['adam', 54, 500], ['eve', 45, 6000],['pandaman', 64, 9000]]),
-                       columns=['name', 'age', 'net_worth'])
-    test_dict = scaler(X_sample, X_sample, X_sample, ['age', 'net_worth'], scaler_type="MinMaxScaler")
-    scaled_temp = np.array([[0.47368421052631593, 0.0],
-       [0.0, 0.6470588235294118],
-       [1.0, 1.0]])
-    assert np.array_equal(test_dict['X_test'].drop(columns=['name']).to_numpy(), scaled_temp), 'Incorrect scaled test values'
+    X_sample = pd.DataFrame(
+        np.array(
+            [["adam", 54, 500], ["eve", 45, 6000], ["pandaman", 64, 9000]]
+        ),
+        columns=["name", "age", "net_worth"],
+    )
+    test_dict = scaler(
+        X_sample,
+        X_sample,
+        X_sample,
+        ["age", "net_worth"],
+        scaler_type="MinMaxScaler",
+    )
+    scaled_temp = np.array(
+        [[0.47368421052631593, 0.0], [0.0, 0.6470588235294118], [1.0, 1.0]]
+    )
+    assert np.array_equal(
+        test_dict["X_test"].drop(columns=["name"]).to_numpy(), scaled_temp
+    ), "Incorrect scaled test values"
+
 
 def test_list():
     with pytest.raises(TypeError):

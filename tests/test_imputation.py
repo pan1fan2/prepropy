@@ -84,8 +84,7 @@ def test_empty():
 def test_method():
     """Tests catches wrong method for imputation"""
     with pytest.raises(KeyError):
-        imputer = imputation("hello")
-        imputer.fit()
+        imputer = imputation("hello")  # noqa: F841
 
 
 def test_pdtype():

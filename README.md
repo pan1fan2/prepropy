@@ -11,7 +11,7 @@ Data preprocessing and EDA are essential to any data science project. EDA provid
 ## Installation
 
 ```bash
-$ pip install -i https://test.pypi.org/simple/ prepropy
+$ pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple prepropy
 ```
 
 ## Features
